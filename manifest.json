@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Quick Notes Pro",
+  "version": "1.9.0",
+  "description": "A fully functional extension to save quick notes local to your browser.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

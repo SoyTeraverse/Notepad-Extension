@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-edition="pro">
+  <div class="app-container">
+    <!-- Main Header -->
+    <div class="header">
+      <div class="header-main">
+        <span class="logo">📝</span>
+        <h1>Quick Notes <span id="versionBadge" class="badge">Pro</span></h1>
+      </div>
+      <button id="configToggleBtn" class="icon-btn" title="Configuration">⚙️</button>
+    </div>
+
+    <!-- Dropdown Configuration Drawer -->
+    <div id="configPanel" class="config-panel hidden">
+      <h3>Configuration</h3>
+      
+      <div class="config-row">
+        <label for="editionSelect">App Edition:</label>
+        <select id="editionSelect">
+          <option value="demo">Demo Edition</option>
+          <option value="legacy">Legacy Core</option>
+          <option value="plus">Plus Pack</option>
+          <option value="pro" selected>Pro Upgrade</option>
+          <option value="developer">Developer Build</option>
+          <option value="insider">Insider Preview</option>
+        </select>
+      </div>
+
+      <div class="config-row">
+        <label>Account:</label>
+        <button id="loginBtn" class="primary-btn">Log In</button>
+      </div>
+
+      <!-- Displays conditionally based on Extension ID check -->
+      <div id="payRow" class="config-row hidden">
+        <label>License:</label>
+        <button id="payBtn" class="success-btn">Upgrade / Pay</button>
+      </div>
+    </div>
+    
+    <!-- Text Workspace -->
+    <textarea id="noteInput" placeholder="Start typing your thoughts here..."></textarea>
+    
+    <!-- Contextual Warnings -->
+    <div id="demoWarning" class="alert-box hidden">
+      ⚠️ Demo version limited to 50 characters max.
+    </div>
+    
+    <!-- App Control Footer -->
+    <div class="footer">
+      <div class="stats">
+        <span id="charCount">0 chars</span>
+        <span class="divider">|</span>
+        <span id="wordCount">0 words</span>
+      </div>
+      <button id="clearBtn" class="danger-btn" title="Clear Note">Clear</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

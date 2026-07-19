@@ -1,10 +1,12 @@
-name: Build Extension
+name: Release Extension
 
 on:
+  release:
+    types: [published]
   workflow_dispatch:
-  push:
-    branches:
-      - main
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -13,16 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create Chrome ZIP
+      - name: Create ZIP
         run: |
-          mkdir chrome
-          cp -r * chrome/
-          cd chrome
-          zip -r ../chrome-extension.zip . \
-            -x ".git/*" ".github/*"
+          zip -r chrome-extension.zip . \
+            -x ".git/*" ".github/*" "chrome-extension.zip"
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
+        if: github.event_name == 'release'
         with:
-          name: chrome-extension
-          path: chrome-extension.zip
+          files: chrome-extension.zip

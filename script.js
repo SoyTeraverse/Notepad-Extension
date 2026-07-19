@@ -45,11 +45,9 @@ function applyEdition(edition) {
   
   const labels = {
     demo: 'Demo',
-    legacy: 'Legacy',
-    plus: 'Plus',
     pro: 'Pro',
     developer: 'Developer',
-    insider: 'Insider'
+    insider: 'Beta'
   };
   
   versionBadge.textContent = labels[edition] || 'Pro';

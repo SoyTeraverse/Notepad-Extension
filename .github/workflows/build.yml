@@ -1,0 +1,27 @@
+name: Build Extension
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Chrome ZIP
+        run: |
+          mkdir chrome
+          cp -r * chrome/
+          cd chrome
+          zip -r ../chrome-extension.zip . \
+            -x ".git/*" ".github/*"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: chrome-extension
+          path: chrome-extension.zip

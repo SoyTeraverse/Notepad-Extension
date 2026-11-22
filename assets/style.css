@@ -12,3 +12,29 @@ body {
 p {
   margin: 0;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #222;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
